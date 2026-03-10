@@ -30,11 +30,9 @@ public class OrderRepositoryTest {
         Order order1 = new Order("13652556-012a-4c07-b546-54eb1396d79b", products, 1708560000L, "Safira Sudrajat");
         orders.add(order1);
 
-        orders = new ArrayList<>();
         Order order2 = new Order("7f9e", products, 1708570000L, "Safira Sudrajat");
         orders.add(order2);
 
-        orders = new ArrayList<>();
         Order order3 = new Order("e334", products, 1708570000L, "Bambang Sudrajat");
         orders.add(order3);
     }
