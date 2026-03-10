@@ -16,7 +16,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.doReturn;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class OrderServiceImplTest {
@@ -31,8 +32,6 @@ public class OrderServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        orderRepository = new OrderRepository();
-
         List<Product> products = new ArrayList<>();
 
         Product product1 = new Product();
