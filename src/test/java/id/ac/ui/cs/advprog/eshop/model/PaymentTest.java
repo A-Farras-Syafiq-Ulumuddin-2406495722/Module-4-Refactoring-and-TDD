@@ -50,15 +50,13 @@ class PaymentTest {
 
         assertEquals("PAY-001", payment.id);
         assertEquals("VOUCHER", payment.method);
-        assertEquals("PENDING", payment.status);
+        assertEquals("SUCCESS", payment.status);
     }
 
     @Test
     void testCreatePaymentInvalidMethod() {
-        Payment payment = new Payment("PAY-002", "INVALID_TYPE", "PENDING", new HashMap<>());
-
         assertThrows(IllegalArgumentException.class, () -> {
-            payment.checkMethod("INVALID_TYPE");
+            new Payment("PAY-002", "INVALID_TYPE", "PENDING", new HashMap<>());
         });
     }
 
@@ -91,7 +89,7 @@ class PaymentTest {
         data.put("bankName", "Bank Central");
         data.put("referenceCode", "123456789");
 
-        Payment payment = new Payment("PAY-005", "BANK_TRANSFER", "PENDING", data);
+        Payment payment = new Payment("PAY-005", "BANK", "PENDING", data);
         payment.setStatus("SUCCESS", data);
 
         assertEquals("SUCCESS", payment.status);
@@ -103,7 +101,7 @@ class PaymentTest {
         data.put("bankName", "Bank Central");
         data.put("referenceCode", "");
 
-        Payment payment = new Payment("PAY-006", "BANK_TRANSFER", "PENDING", data);
+        Payment payment = new Payment("PAY-006", "BANK", "PENDING", data);
         payment.setStatus("REJECTED", data);
 
         assertEquals("REJECTED", payment.status);
